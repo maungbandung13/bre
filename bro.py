@@ -34,13 +34,16 @@ async def main():
     await page.click('#panels > div.__abacus_tab-container > div.__abacus_tab-content > div:nth-child(1) > div > div.__abacus_run-bar.__abacus_light-mode > button.StyledButtonKind-sc-1vhfpnt-0.eZfslY.__abacus_button.__abacus_runButton')
     
     await page.screenshot({'path': 'fin.png'})
-    for x in range(37200):
-#         await page.waitForSelector('#panels > div.__abacus_tab-container > div.__abacus_tab-content > div:nth-child(1) > div > div.__abacus_run-bar.__abacus_light-mode > button.StyledButtonKind-sc-1vhfpnt-0.eZfslY.__abacus_button.__abacus_runButton') # click run
-    
-#         await page.click('#panels > div.__abacus_tab-container > div.__abacus_tab-content > div:nth-child(1) > div > div.__abacus_run-bar.__abacus_light-mode > button.StyledButtonKind-sc-1vhfpnt-0.eZfslY.__abacus_button.__abacus_runButton')
+    for x in range(30000):
+    # for x in range(7):
+
         time.sleep(9)
-        await page.keyboard.press('s')
-        await page.screenshot({'path': "aliive{n}.png".format(n=sys.argv[1])})
+        try:
+            
+             await page.click('#panels > div.__abacus_tab-container > div.__abacus_tab-content > div:nth-child(1) > div > div.__abacus_run-bar.__abacus_light-mode > button.StyledButtonKind-sc-1vhfpnt-0.eZfslY.__abacus_button.__abacus_runButton')
+        except:
+            await page.keyboard.press('s')
+            await page.screenshot({'path': "aliive{n}.png".format(n=sys.argv[1])})
     
     await browser.close()
     
